@@ -12,6 +12,12 @@ var objects;
         function GameObject(bitmapString) {
             _super.call(this, assets.getResult(bitmapString));
             this._speed = new createjs.Point(0, 0);
+            this._widhth = this.getBounds().width;
+            this._height = this.getBounds().height;
+            this._topBounds = this._height;
+            this._bottomBounds = config.Screen.HEIGHT - this._height;
+            this._leftBounds = -this._widhth;
+            this._rightBounds = config.Screen.WIDTH + this._widhth;
         }
         // PRIVATE METHODS +++++++++++++++++++++++
         GameObject.prototype._checkBounds = function (value) {

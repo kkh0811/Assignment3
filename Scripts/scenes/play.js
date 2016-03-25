@@ -15,14 +15,19 @@ var scenes;
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
         Play.prototype.start = function () {
+            // added forest to the scene
             this._forest = new objects.Forest();
             this.addChild(this._forest);
+            // added enemy to the scene
+            this._enemy = new objects.Enemy();
+            this.addChild(this._enemy);
             // add this scene to the global stage container
             stage.addChild(this);
         };
         // PLAY Scene updates here
         Play.prototype.update = function () {
             this._forest.update();
+            this._enemy.update();
         };
         return Play;
     })(objects.Scene);
