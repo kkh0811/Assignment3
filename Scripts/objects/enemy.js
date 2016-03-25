@@ -12,7 +12,7 @@ var objects;
         // COSTRUCTOR METHODS +++++++++++++++++++++
         function Enemy() {
             _super.call(this, "enemy");
-            this._speed.x = 3; //Forest SPEED
+            this._speed.x = 2.5; //Forest SPEED
             this._reset(this._rightBounds);
         }
         // PRIVATE METHODS +++++++++++++++++++++++
@@ -24,10 +24,10 @@ var objects;
         };
         // reset the forest offscreen
         Enemy.prototype._reset = function (value) {
-            this._speed.x = Math.round((Math.random() * 5) + 3);
-            this._speed.y = Math.round((Math.random() * 5) - 3);
+            this._speed.x = Math.floor((Math.random() * 5) + 5);
+            this._speed.y = Math.floor((Math.random() * 5) - 5);
             this.x = value;
-            this.y = Math.round((Math.random() * this._bottomBounds) + this._topBounds);
+            this.y = Math.floor((Math.random() * this._bottomBounds) + this._topBounds);
         };
         Enemy.prototype.update = function () {
             // scroll the forest 5 px per frame

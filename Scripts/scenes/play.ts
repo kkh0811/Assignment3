@@ -4,6 +4,7 @@ module scenes {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
         private _forest: objects.Forest;
         private _enemy: objects.Enemy;
+        private _bonus: objects.Bonus;
 
         
         // CONSTRUCTOR ++++++++++++++++++++++
@@ -23,6 +24,10 @@ module scenes {
             // added enemy to the scene
             this._enemy = new objects.Enemy();
             this.addChild(this._enemy);
+            
+            // added bonus to the scene
+            this._bonus = new objects.Bonus();
+            this.addChild(this._bonus);
 
             // add this scene to the global stage container
             stage.addChild(this);
@@ -32,6 +37,7 @@ module scenes {
         public update(): void {
             this._forest.update();
             this._enemy.update();
+            this._bonus.update();
 
         }
         

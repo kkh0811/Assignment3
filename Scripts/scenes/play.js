@@ -21,6 +21,9 @@ var scenes;
             // added enemy to the scene
             this._enemy = new objects.Enemy();
             this.addChild(this._enemy);
+            // added bonus to the scene
+            this._bonus = new objects.Bonus();
+            this.addChild(this._bonus);
             // add this scene to the global stage container
             stage.addChild(this);
         };
@@ -28,6 +31,7 @@ var scenes;
         Play.prototype.update = function () {
             this._forest.update();
             this._enemy.update();
+            this._bonus.update();
         };
         return Play;
     })(objects.Scene);

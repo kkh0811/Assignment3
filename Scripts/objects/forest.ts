@@ -12,7 +12,7 @@ module objects {
         
         // PRIVATE METHODS +++++++++++++++++++++++
         protected _checkBounds(value:number):void {
-            console.log(this.x);
+            //console.log(this.x);
             if(this.x <= value)
             {
                 this._reset(0);

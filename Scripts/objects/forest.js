@@ -17,7 +17,7 @@ var objects;
         }
         // PRIVATE METHODS +++++++++++++++++++++++
         Forest.prototype._checkBounds = function (value) {
-            console.log(this.x);
+            //console.log(this.x);
             if (this.x <= value) {
                 this._reset(0);
             }
