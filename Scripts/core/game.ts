@@ -19,10 +19,10 @@ var assetData:objects.Asset[] = [
     {id: "StartButton", src:"../../Assets/images/StartButton.png"},
     {id: "RestartButton", src:"../../Assets/images/RestartButton.png"},
     {id: "BackButton", src:"../../Assets/images/BackButton.png"},
-    {id: "ocean", src:"../../Assets/images/ocean.gif"},
-    {id: "plane", src:"../../Assets/images/plane.png"},
-    {id: "island", src:"../../Assets/images/island.png"},
-    {id: "cloud", src:"../../Assets/images/cloud.png"},
+    {id: "forest", src:"../../Assets/images/background.png"},
+    {id: "master", src:"../../Assets/images/Bird1.png"},
+    {id: "enemy", src:"../../Assets/images/enemy.png"},
+    {id: "enemytwo", src:"../../Assets/images/enemy2.png"},
 ];
 
 function preload() {
