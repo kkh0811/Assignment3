@@ -8,33 +8,31 @@ var objects;
     // Forest Class +++++++++++++++++++++++
     var Forest = (function (_super) {
         __extends(Forest, _super);
+        // PRIVATE INSTANCE VARIABLES ++++++++++++++++
         // COSTRUCTOR METHODS +++++++++++++++++++++
         function Forest() {
-            _super.call(this, assets.getResult("forest"));
-            this._speed = 2; //Forest SPEED
-            this._reset();
-            this._width = this.getBounds().width;
-            this._height = this.getBounds().height;
+            _super.call(this, "forest");
+            this._speed.x = 1.5; //Forest SPEED
+            this._reset(0);
         }
         // PRIVATE METHODS +++++++++++++++++++++++
-        Forest.prototype._checkBounds = function () {
+        Forest.prototype._checkBounds = function (value) {
             console.log(this.x);
-            if (this.x <= -290) {
-                this._reset();
+            if (this.x <= value) {
+                this._reset(0);
             }
         };
         // reset the forest offscreen
-        Forest.prototype._reset = function () {
-            this.x = 0;
-            this.y = 0;
+        Forest.prototype._reset = function (value) {
+            this.x = value;
         };
         Forest.prototype.update = function () {
             // scroll the forest 5 px per frame
-            this.x -= this._speed;
-            this._checkBounds();
+            this.x -= this._speed.x;
+            this._checkBounds(-300);
         };
         return Forest;
-    })(createjs.Bitmap);
+    })(objects.GameObject);
     objects.Forest = Forest;
 })(objects || (objects = {}));
 //# sourceMappingURL=forest.js.map

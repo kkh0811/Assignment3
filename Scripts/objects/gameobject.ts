@@ -1,21 +1,23 @@
 module objects {
-    // Forest Class +++++++++++++++++++++++
-    export class Forest extends objects.GameObject {
+    // GameObject Super Class +++++++++++++++++++++++
+    export class GameObject extends createjs.Bitmap {
         // PRIVATE INSTANCE VARIABLES ++++++++++++++++
+        protected _speed:createjs.Point;
 
+        
         // COSTRUCTOR METHODS +++++++++++++++++++++
-        constructor() {
-            super("forest");
-            this._speed.x = 1.5; //Forest SPEED
-            this._reset(0);
+        constructor(bitmapString:string) {
+            super(assets.getResult(bitmapString));
+            this._speed = new createjs.Point(0,0);
         }
         
         // PRIVATE METHODS +++++++++++++++++++++++
         protected _checkBounds(value:number):void {
-            console.log(this.x);
+            var resetValue:number = 0;
+            // check if x value has met the reset criteira
             if(this.x <= value)
             {
-                this._reset(0);
+                this._reset(resetValue);
             }
         }
         
@@ -25,9 +27,10 @@ module objects {
         }
         
         public update():void {
+            var boundValue:number = 0;
             // scroll the forest 5 px per frame
             this.x -= this._speed.x;
-            this._checkBounds(-300);
+            this._checkBounds(boundValue);
         }
     }
 }
