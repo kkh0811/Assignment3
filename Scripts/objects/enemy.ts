@@ -21,10 +21,10 @@ module objects {
         
         // reset the forest offscreen
         protected _reset(value:number):void {
-            this._speed.x = Math.floor((Math.random()*5) +5);
-            this._speed.y = Math.floor((Math.random()*5) -5);
+            this._speed.x = Math.round((Math.random()*5) +3);
+            this._speed.y = Math.round((Math.random()*4) -2);
             this.x = value;
-            this.y = Math.floor((Math.random() * this._bottomBounds) + this._topBounds); 
+            this.y = Math.round((Math.random() * this._bottomBounds) + this._topBounds); 
         }
         
         public update():void {

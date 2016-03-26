@@ -15,12 +15,21 @@ var scenes;
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
         Play.prototype.start = function () {
+            //Set Enemy Count
+            this._enemyCount = 3;
+            //Instantiate Enemy array 
+            this._enemies = new Array();
             // added forest to the scene
             this._forest = new objects.Forest();
             this.addChild(this._forest);
-            // added enemy to the scene
-            this._enemy = new objects.Enemy();
-            this.addChild(this._enemy);
+            // added player to the secne
+            this._player = new objects.Player();
+            this.addChild(this._player);
+            // added enemies to the scene
+            for (var enemy = 0; enemy < this._enemyCount; enemy++) {
+                this._enemies[enemy] = new objects.Enemy();
+                this.addChild(this._enemies[enemy]);
+            }
             // added bonus to the scene
             this._bonus = new objects.Bonus();
             this.addChild(this._bonus);
@@ -30,8 +39,11 @@ var scenes;
         // PLAY Scene updates here
         Play.prototype.update = function () {
             this._forest.update();
-            this._enemy.update();
             this._bonus.update();
+            this._player.update();
+            for (var enemy in this._enemies) {
+                this._enemies[enemy].update();
+            }
         };
         return Play;
     })(objects.Scene);
