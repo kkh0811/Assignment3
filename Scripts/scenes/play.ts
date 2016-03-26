@@ -7,6 +7,7 @@ module scenes {
         private _bonus: objects.Bonus;
         private _enemyCount:number;
         private _player: objects.Player;
+        private _collision: managers.Collision;
 
         
         // CONSTRUCTOR ++++++++++++++++++++++
@@ -36,8 +37,10 @@ module scenes {
             for (var enemy: number = 0; enemy < this._enemyCount; enemy++) {
                 this._enemies[enemy] = new objects.Enemy();
                 this.addChild(this._enemies[enemy]);
-
             }
+            
+            // added collision manager to the scene
+            this._collision = new managers.Collision(this._player);
             
             // added bonus to the scene
             this._bonus = new objects.Bonus();
@@ -52,9 +55,13 @@ module scenes {
             this._forest.update();
             this._bonus.update();
             this._player.update();
-            for(var enemy in this._enemies){
-                this._enemies[enemy].update();
-            }
+            
+            this._enemies.forEach(enemy => {
+                enemy.update();
+                this._collision.check(enemy);
+            });
+            
+            this._collision.check(this._bonus);
         }
         
         

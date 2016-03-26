@@ -7,6 +7,7 @@ module objects {
         constructor() {
             super("bonus");
             this._reset(this._rightBounds);
+            this.name = "bonus";
         }
         
         // PRIVATE METHODS +++++++++++++++++++++++
@@ -29,7 +30,7 @@ module objects {
         public update():void {
             // scroll the Bonus left the screen
             this.x -= this._speed.x;
-            this.y -+ this._speed.y;
+            this.y -= this._speed.y;
             this._checkBounds((-config.Screen.WIDTH)*2);
         }
     }

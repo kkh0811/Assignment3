@@ -8,6 +8,7 @@ module objects {
             super("forest");
             this._speed.x = 1.5; //Forest SPEED
             this._reset(0);
+            this.name = "forest";
         }
         
         // PRIVATE METHODS +++++++++++++++++++++++

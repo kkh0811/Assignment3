@@ -30,6 +30,8 @@ var scenes;
                 this._enemies[enemy] = new objects.Enemy();
                 this.addChild(this._enemies[enemy]);
             }
+            // added collision manager to the scene
+            this._collision = new managers.Collision(this._player);
             // added bonus to the scene
             this._bonus = new objects.Bonus();
             this.addChild(this._bonus);
@@ -38,12 +40,15 @@ var scenes;
         };
         // PLAY Scene updates here
         Play.prototype.update = function () {
+            var _this = this;
             this._forest.update();
             this._bonus.update();
             this._player.update();
-            for (var enemy in this._enemies) {
-                this._enemies[enemy].update();
-            }
+            this._enemies.forEach(function (enemy) {
+                enemy.update();
+                _this._collision.check(enemy);
+            });
+            this._collision.check(this._bonus);
         };
         return Play;
     })(objects.Scene);

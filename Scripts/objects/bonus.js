@@ -13,6 +13,7 @@ var objects;
         function Bonus() {
             _super.call(this, "bonus");
             this._reset(this._rightBounds);
+            this.name = "bonus";
         }
         // PRIVATE METHODS +++++++++++++++++++++++
         Bonus.prototype._checkBounds = function (value) {
@@ -31,7 +32,7 @@ var objects;
         Bonus.prototype.update = function () {
             // scroll the Bonus left the screen
             this.x -= this._speed.x;
-            this.y - +this._speed.y;
+            this.y -= this._speed.y;
             this._checkBounds((-config.Screen.WIDTH) * 2);
         };
         return Bonus;
