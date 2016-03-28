@@ -19,6 +19,7 @@ module scenes {
         
         // Start Method
         public start(): void {
+            
             //Set Enemy Count
             this._enemyCount = 3;
             
@@ -40,12 +41,13 @@ module scenes {
             }
             
             // added collision manager to the scene
-            this._collision = new managers.Collision(this._player);
+            this._collision = new managers.Collision(this._player)
+            
             
             // added bonus to the scene
             this._bonus = new objects.Bonus();
             this.addChild(this._bonus);
-
+           
             // add this scene to the global stage container
             stage.addChild(this);
         }
@@ -55,7 +57,6 @@ module scenes {
             this._forest.update();
             this._bonus.update();
             this._player.update();
-            
             this._enemies.forEach(enemy => {
                 enemy.update();
                 this._collision.check(enemy);

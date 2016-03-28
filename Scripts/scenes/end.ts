@@ -15,6 +15,9 @@ module scenes {
         
         // Start Method
         public start(): void {
+            //Add background
+            this.background("EndBackground");
+            
             //Add Menu Label
             this._endLabel = new objects.Label(
                 "END SCENE", "60px Consolas",

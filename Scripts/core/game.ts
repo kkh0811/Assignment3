@@ -4,6 +4,7 @@
 var assets: createjs.LoadQueue;
 var canvas: HTMLElement;
 var stage: createjs.Stage;
+var game: createjs.Container;
 var stats: Stats;
 
 var currentScene: objects.Scene;
@@ -16,14 +17,22 @@ var end: scenes.End;
 
 var assetData:objects.Asset[] = [
     // Add your Assets here
+    {id: "MainBackground", src:"../../Assets/images/secondback.jpg"},
+    {id: "EndBackground", src:"../../Assets/images/GameEnd.jpg"},
     {id: "StartButton", src:"../../Assets/images/StartButton.png"},
     {id: "RestartButton", src:"../../Assets/images/RestartButton.png"},
     {id: "BackButton", src:"../../Assets/images/BackButton.png"},
     {id: "forest", src:"../../Assets/images/background.png"},
     {id: "master", src:"../../Assets/images/Bird1.png"},
+    {id: "master1", src:"../../Assets/images/Bird2.png"},
+    {id: "master2", src:"../../Assets/images/Bird3.png"},
+    {id: "masterDead", src:"../../Assets/images/DeadBird.png"},
     {id: "enemy", src:"../../Assets/images/enemy.png"},
     {id: "enemytwo", src:"../../Assets/images/enemy2.png"},
-    {id: "bonus", src:"../../Assets/images/bonus.png"}
+    {id: "bonus", src:"../../Assets/images/bonus.png"},
+    
+    // Add music
+    {id: "backMusic", src:"../../Assets/audio/backmusic.mp3"},
 ];
 
 function preload() {

@@ -31,6 +31,15 @@ module objects {
                 this.y = this._bottomBounds;
             }
         }
+        private _shuffleImages(value:string)
+        {
+            var images = new Array();
+            images[0] = assets.getResult("master1");
+            images[1] = assets.getResult("master2");
+            images[2] = assets.getResult("master3");
+            images[3] = assets.getResult("masterDead")
+        }
+        
         
         // PUBLIC MEHTODS
         public update(): void {

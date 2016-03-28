@@ -13,6 +13,11 @@ var objects;
             _super.call(this);
             this.start();
         }
+        // Add background 
+        Scene.prototype.background = function (value) {
+            this._background = new createjs.Bitmap(assets.getResult("MainBackground"));
+            this.addChild(this._background);
+        };
         // Add game objects to my scene in this method
         Scene.prototype.start = function () {
             stage.addChild(this);

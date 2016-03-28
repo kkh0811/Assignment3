@@ -27,6 +27,13 @@ var objects;
                 this.y = this._bottomBounds;
             }
         };
+        Player.prototype._shuffleImages = function (value) {
+            var images = new Array();
+            images[0] = assets.getResult("master1");
+            images[1] = assets.getResult("master2");
+            images[2] = assets.getResult("master3");
+            images[3] = assets.getResult("masterDead");
+        };
         // PUBLIC MEHTODS
         Player.prototype.update = function () {
             this.y = stage.mouseY;
