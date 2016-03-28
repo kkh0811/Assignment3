@@ -12,14 +12,14 @@ var objects;
         function GameObject(bitmapString) {
             _super.call(this, assets.getResult(bitmapString));
             this._speed = new createjs.Point(0, 0);
-            this.widhth = this.getBounds().width;
+            this.width = this.getBounds().width;
             this.height = this.getBounds().height;
-            this.centerX = this.widhth * 0.5;
+            this.centerX = this.width * 0.5;
             this.centerY = this.height * 0.5;
             this._topBounds = this.height;
             this._bottomBounds = config.Screen.HEIGHT - this.height;
-            this._leftBounds = -this.widhth;
-            this._rightBounds = config.Screen.WIDTH + this.widhth;
+            this._leftBounds = -this.width;
+            this._rightBounds = config.Screen.WIDTH + this.width;
         }
         // PRIVATE METHODS +++++++++++++++++++++++
         GameObject.prototype._checkBounds = function (value) {

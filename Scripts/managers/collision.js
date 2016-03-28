@@ -11,15 +11,24 @@ var managers;
         Collision.prototype.check = function (object) {
             var startPoint = new createjs.Point();
             var endPoint = new createjs.Point();
-            var playerHalfHeight = this._player.height * 0.5;
-            var objectHalfHeight = object.height * 0.5;
-            var minimumDistance = playerHalfHeight + objectHalfHeight;
+            var playerHalfWidth = this._player.width * 0.5;
+            var objectHalfWidth = object.width * 0.5;
+            var minimumDistance = playerHalfWidth + objectHalfWidth;
             startPoint.x = this._player.x;
             startPoint.y = this._player.y;
-            endPoint.x = object.centerX;
-            endPoint.y = object.centerY;
+            endPoint.x = object.centerX + object.x;
+            endPoint.y = object.centerY + object.y;
             if (this.distance(startPoint, endPoint) < minimumDistance) {
-                console.log("Collision!");
+                if (object.name === "enemy") {
+                    console.log("enemy hit!");
+                    play._lives--;
+                    object._reset(0);
+                }
+                if (object.name === "bonus") {
+                    console.log("bonus hit!");
+                    play._lives++;
+                    object._reset(0);
+                }
             }
         };
         return Collision;

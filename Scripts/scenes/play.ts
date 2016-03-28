@@ -5,11 +5,16 @@ module scenes {
         private _forest: objects.Forest;
         private _enemies: objects.Enemy[];
         private _bonus: objects.Bonus;
-        private _enemyCount:number;
+        private _enemyCount: number;
         private _player: objects.Player;
         private _collision: managers.Collision;
-
+        private _scoreboard: objects.ScoreBoard;
         
+        public _score: number = 0;
+        public _lives: number = 5;
+        private _scoreLabel: objects.Label;
+        private _livesLabel: objects.Label;
+
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
             super();
@@ -18,7 +23,7 @@ module scenes {
         // PUBLIC METHODS +++++++++++++++++++++
         
         // Start Method
-        public start(): void {
+        public start(): void {   
             
             //Set Enemy Count
             this._enemyCount = 3;
@@ -47,6 +52,14 @@ module scenes {
             // added bonus to the scene
             this._bonus = new objects.Bonus();
             this.addChild(this._bonus);
+    
+
+            this._livesLabel = new objects.Label("Lives:", "40px Candara Bold Italic", "#FF0000", 20, 0, false);
+            this.addChild(this._livesLabel);
+            this._scoreLabel = new objects.Label("Score:", "40px Candara Bold Italic", "#FF0000", 425, 0, false);
+            this.addChild(this._scoreLabel);
+            
+            
            
             // add this scene to the global stage container
             stage.addChild(this);
@@ -60,9 +73,12 @@ module scenes {
             this._enemies.forEach(enemy => {
                 enemy.update();
                 this._collision.check(enemy);
+                this._score += 0.1;
             });
-            
+
             this._collision.check(this._bonus);
+            this._livesLabel.text = "Lives: " + this._lives;
+            this._scoreLabel.text = "Score: " + Math.round(this._score);
         }
         
         
