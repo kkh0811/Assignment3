@@ -16,7 +16,9 @@ module scenes {
         public start(): void {
             
             //Add background
-            this.background("MainBackground");
+            //this.background("MainBackground");
+            this.background("endback");
+            
      
             createjs.Sound.play("backMusic").loop = -1;
             createjs.Sound.volume = 100;

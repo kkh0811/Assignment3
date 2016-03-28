@@ -16,7 +16,7 @@ var scenes;
         // Start Method
         End.prototype.start = function () {
             //Add background
-            this.background("EndBackground");
+            this.background("forest");
             //Add Menu Label
             this._endLabel = new objects.Label("END SCENE", "60px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._endLabel);
@@ -35,7 +35,7 @@ var scenes;
         // START_OVER Button click event handler
         End.prototype._restartButtonClick = function (event) {
             // Switch to the INTRO Scene
-            scene = config.Scene.MENU;
+            scene = config.Scene.PLAY;
             changeScene();
         };
         return End;

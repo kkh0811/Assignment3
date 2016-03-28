@@ -16,7 +16,7 @@ module scenes {
         // Start Method
         public start(): void {
             //Add background
-            this.background("EndBackground");
+            this.background("forest");
             
             //Add Menu Label
             this._endLabel = new objects.Label(
@@ -51,7 +51,7 @@ module scenes {
         // START_OVER Button click event handler
         private _restartButtonClick(event: createjs.MouseEvent) {
             // Switch to the INTRO Scene
-            scene = config.Scene.MENU;
+            scene = config.Scene.PLAY;
             changeScene();
         }
     }

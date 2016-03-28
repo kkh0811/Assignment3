@@ -18,7 +18,6 @@ var end: scenes.End;
 var assetData:objects.Asset[] = [
     // Add your Assets here
     {id: "MainBackground", src:"../../Assets/images/secondback.jpg"},
-    {id: "EndBackground", src:"../../Assets/images/GameEnd.jpg"},
     {id: "StartButton", src:"../../Assets/images/StartButton.png"},
     {id: "RestartButton", src:"../../Assets/images/RestartButton.png"},
     {id: "BackButton", src:"../../Assets/images/BackButton.png"},
@@ -30,6 +29,7 @@ var assetData:objects.Asset[] = [
     {id: "enemy", src:"../../Assets/images/enemy.png"},
     {id: "enemytwo", src:"../../Assets/images/enemy2.png"},
     {id: "bonus", src:"../../Assets/images/bonus.png"},
+    {id: "endback", src:"../../Assets/images/GameEnd.png"},
     
     // Add music
     {id: "backMusic", src:"../../Assets/audio/backmusic.mp3"},

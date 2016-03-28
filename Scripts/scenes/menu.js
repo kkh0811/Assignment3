@@ -16,7 +16,8 @@ var scenes;
         // Start Method
         Menu.prototype.start = function () {
             //Add background
-            this.background("MainBackground");
+            //this.background("MainBackground");
+            this.background("endback");
             createjs.Sound.play("backMusic").loop = -1;
             createjs.Sound.volume = 100;
             //Add Menu Label

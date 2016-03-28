@@ -58,6 +58,10 @@ var scenes;
             this._collision.check(this._bonus);
             this._livesLabel.text = "Lives: " + this._lives;
             this._scoreLabel.text = "Score: " + Math.round(this._score);
+            if (this._lives == 0) {
+                scene = config.Scene.END;
+                changeScene();
+            }
         };
         return Play;
     })(objects.Scene);

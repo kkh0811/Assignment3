@@ -9,7 +9,7 @@ module scenes {
         private _player: objects.Player;
         private _collision: managers.Collision;
         private _scoreboard: objects.ScoreBoard;
-        
+
         public _score: number = 0;
         public _lives: number = 5;
         private _scoreLabel: objects.Label;
@@ -52,14 +52,14 @@ module scenes {
             // added bonus to the scene
             this._bonus = new objects.Bonus();
             this.addChild(this._bonus);
-    
+
 
             this._livesLabel = new objects.Label("Lives:", "40px Candara Bold Italic", "#FF0000", 20, 0, false);
             this.addChild(this._livesLabel);
             this._scoreLabel = new objects.Label("Score:", "40px Candara Bold Italic", "#FF0000", 425, 0, false);
             this.addChild(this._scoreLabel);
             
-            
+
            
             // add this scene to the global stage container
             stage.addChild(this);
@@ -79,6 +79,10 @@ module scenes {
             this._collision.check(this._bonus);
             this._livesLabel.text = "Lives: " + this._lives;
             this._scoreLabel.text = "Score: " + Math.round(this._score);
+            if (this._lives == 0) {
+                scene = config.Scene.END;
+                changeScene();
+            }
         }
         
         
