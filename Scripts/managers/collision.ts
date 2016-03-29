@@ -49,8 +49,9 @@ module managers {
                     console.log("enemy hit!");
                     // Add crush with enemy sound
                     createjs.Sound.play("bgmcrush");
+                    
                     play.lives--;
-                    object._reset(0);         // reset the enemy when player meets them.
+                    object._reset(config.Screen.WIDTH + object.width);         // reset the enemy when player meets them.
                 }
                 // if player meets heart, his lives will be increased.
                 if (object.name === "bonus") {
@@ -58,7 +59,7 @@ module managers {
                     // Add getting a heart sound
                     createjs.Sound.play("bgmGetheart");
                     play.lives++;
-                    object._reset(0); // reset the bonus when player meets them.
+                    object._reset(config.Screen.WIDTH + object.width); // reset the bonus when player meets them.
                 }
 
 

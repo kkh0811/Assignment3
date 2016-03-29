@@ -23,7 +23,7 @@ module objects {
         public width: number;
         public height: number;
         constructor() {
-            super(assets.getResult("master"));
+            super(assets.getResult("master1"));
 
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
@@ -45,20 +45,35 @@ module objects {
                 this.y = this._bottomBounds;
             }
         }
+        
+        /*
         private _shuffleImages(value:string)
         {
             var images = new Array();
             images[0] = assets.getResult("master1");
             images[1] = assets.getResult("master2");
-            images[2] = assets.getResult("master3");
-            images[3] = assets.getResult("masterDead")
+            images[2] = assets.getResult("master2");
+           do
+            {
+                var i:number;
+                for(i = 0; i <2; i++)
+                {
+                    this.image = images[i];
+                }
+            }
+            while(value != "");
+
         }
+        */
         
         
         // PUBLIC MEHTODS
         public update(): void {
             this.y = stage.mouseY;
             this._checkBounds();
+            //console.log("Shuffle!")
+            //this._shuffleImages("");
+            
         }
     }
 }

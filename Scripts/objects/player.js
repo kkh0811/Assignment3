@@ -22,7 +22,7 @@ var objects;
     var Player = (function (_super) {
         __extends(Player, _super);
         function Player() {
-            _super.call(this, assets.getResult("master"));
+            _super.call(this, assets.getResult("master1"));
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
             this.regX = this.width * 0.5;
@@ -40,17 +40,31 @@ var objects;
                 this.y = this._bottomBounds;
             }
         };
-        Player.prototype._shuffleImages = function (value) {
+        /*
+        private _shuffleImages(value:string)
+        {
             var images = new Array();
             images[0] = assets.getResult("master1");
             images[1] = assets.getResult("master2");
-            images[2] = assets.getResult("master3");
-            images[3] = assets.getResult("masterDead");
-        };
+            images[2] = assets.getResult("master2");
+           do
+            {
+                var i:number;
+                for(i = 0; i <2; i++)
+                {
+                    this.image = images[i];
+                }
+            }
+            while(value != "");
+
+        }
+        */
         // PUBLIC MEHTODS
         Player.prototype.update = function () {
             this.y = stage.mouseY;
             this._checkBounds();
+            //console.log("Shuffle!")
+            //this._shuffleImages("");
         };
         return Player;
     })(createjs.Bitmap);
