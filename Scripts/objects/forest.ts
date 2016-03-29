@@ -42,7 +42,7 @@ module objects {
         public update():void {
             // scroll the forest 5 px per frame
             this.x -= this._speed.x;
-            this._checkBounds(-300);
+            this._checkBounds(-2091);
         }
     }
 }
