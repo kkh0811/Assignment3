@@ -1,6 +1,6 @@
-﻿/*
+/*
 #######################################################################################
-The name of source file : menu.ts
+The name of source file : intro.ts
 The information of author :  Giho Kim #300738697
 Last Modified by: Giho Kim
 Last Modified date: 29 March 2016
@@ -12,11 +12,10 @@ Revision History: 1.0
 #######################################################################################
 */
 
-// MENU SCENE
+// INTRO SCENE
 module scenes {
-    export class Menu extends objects.Scene {
+    export class Intro extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
-        private _menuLabel: objects.Label;
         private _startButton: objects.Button;
         private _backgroundImage: createjs.Bitmap;
         
@@ -31,17 +30,9 @@ module scenes {
         public start(): void {
             
             //Add background
-            this._backgroundImage = new createjs.Bitmap(assets.getResult("MainBackground"));
+            this._backgroundImage = new createjs.Bitmap(assets.getResult("intro"));
             this.addChild(this._backgroundImage);
-            
-            //Add Menu Label
-            this._menuLabel = new objects.Label(
-                "Are you ready?", "60px Candara Bold Italic",
-                "#FFFFFF",
-                config.Screen.CENTER_X, config.Screen.CENTER_Y - 210, true);
-            this.addChild(this._menuLabel);
-            
-            
+               
             // add the Start button to the MENU scene
             this._startButton = new objects.Button(
                 "StartButton",
@@ -65,12 +56,12 @@ module scenes {
         
         //EVENT HANDLERS ++++++++++++++++++++
         
-        // StartButton click event handler
+        // PlayButton click event handler
         private _startButtonClick(event: createjs.MouseEvent) {
-            // Switch to the INTRO Scene
             // Add click sound
             createjs.Sound.play("bgmchicken");
-            scene = config.Scene.INTRO;
+            // Switch to the Play Scene
+            scene = config.Scene.PLAY;
             changeScene();
         }
 

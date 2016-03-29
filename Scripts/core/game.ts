@@ -1,4 +1,18 @@
-﻿/// <reference path = "_reference.ts" />
+﻿/*
+#######################################################################################
+The name of source file : game.ts
+The information of author :  Giho Kim #300738697
+Last Modified by: Giho Kim
+Last Modified date: 29 March 2016
+Program Description: The game is to avoid the enemies using the side scroller. User can
+control the player by a mouse and the enemies will be generated randomly. Some hearts
+also will be generated as bonus. when user get a bonus, which will give a life.
+Good Luck!
+Revision History: 1.0
+#######################################################################################
+*/
+
+/// <reference path = "_reference.ts" />
 
 // global variables
 var assets: createjs.LoadQueue;
@@ -6,33 +20,42 @@ var canvas: HTMLElement;
 var stage: createjs.Stage;
 var game: createjs.Container;
 var stats: Stats;
-
 var currentScene: objects.Scene;
 var scene: number;
 
 // Game Scenes
 var menu: scenes.Menu;
+var intro: scenes.Intro;
 var play: scenes.Play;
 var end: scenes.End;
 
-var assetData:objects.Asset[] = [
-    // Add your Assets here
-    {id: "MainBackground", src:"../../Assets/images/secondback.jpg"},
-    {id: "StartButton", src:"../../Assets/images/StartButton.png"},
-    {id: "RestartButton", src:"../../Assets/images/RestartButton.png"},
-    {id: "BackButton", src:"../../Assets/images/BackButton.png"},
-    {id: "forest", src:"../../Assets/images/background.png"},
-    {id: "master", src:"../../Assets/images/Bird1.png"},
-    {id: "master1", src:"../../Assets/images/Bird2.png"},
-    {id: "master2", src:"../../Assets/images/Bird3.png"},
-    {id: "masterDead", src:"../../Assets/images/DeadBird.png"},
-    {id: "enemy", src:"../../Assets/images/enemy.png"},
-    {id: "enemytwo", src:"../../Assets/images/enemy2.png"},
-    {id: "bonus", src:"../../Assets/images/bonus.png"},
-    {id: "endback", src:"../../Assets/images/GameEnd.png"},
+// Add my assets
+var assetData: objects.Asset[] = [
+    // add images
+    { id: "MainBackground", src: "../../Assets/images/secondback.jpg" },
+    { id: "StartButton", src: "../../Assets/images/StartButton.png" },
+    { id: "RestartButton", src: "../../Assets/images/RestartButton.png" },
+    { id: "BackButton", src: "../../Assets/images/BackButton.png" },
+    { id: "forest", src: "../../Assets/images/background.png" },
+    { id: "master", src: "../../Assets/images/Bird1.png" },
+    { id: "master1", src: "../../Assets/images/Bird2.png" },
+    { id: "master2", src: "../../Assets/images/Bird3.png" },
+    { id: "masterDead", src: "../../Assets/images/DeadBird.png" },
+    { id: "enemy", src: "../../Assets/images/enemy.png" },
+    { id: "enemytwo", src: "../../Assets/images/enemy2.png" },
+    { id: "bonus", src: "../../Assets/images/bonus.png" },
+    { id: "endback", src: "../../Assets/images/GameEnd.png" },
+    { id: "intro", src: "../../Assets/images/intro.png" },
     
     // Add music
-    {id: "backMusic", src:"../../Assets/audio/backmusic.mp3"},
+    { id: "backMusic", src: "../../Assets/audio/backmusic.mp3" },
+    { id: "bgmchicken", src: "../../Assets/audio/chicken.mp3" },
+    { id: "bgmcrush", src: "../../Assets/audio/crush.mp3" },
+    { id: "bgmdead", src: "../../Assets/audio/dead.mp3" },
+    { id: "bgmEnemy", src: "../../Assets/audio/enemy.mp3" },
+    { id: "bgmGetheart", src: "../../Assets/audio/getheart.mp3" },
+    { id: "bgmrestart", src: "../../Assets/audio/heart.mp3" },
+    { id: "bgmplaying", src: "../../Assets/audio/playing.mp3" },
 ];
 
 function preload() {
@@ -102,6 +125,13 @@ function changeScene(): void {
             menu = new scenes.Menu();
             currentScene = menu;
             console.log("Starting MENU Scene");
+            break;
+        case config.Scene.INTRO:
+            // show the INTRO scene
+            stage.removeAllChildren();
+            intro = new scenes.Intro();
+            currentScene = intro;
+            console.log("Starting INTRO Scene");
             break;
         case config.Scene.PLAY:
             // show the PLAY scene

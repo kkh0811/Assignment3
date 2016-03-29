@@ -1,6 +1,6 @@
 /*
 #######################################################################################
-The name of source file : menu.ts
+The name of source file : intro.ts
 The information of author :  Giho Kim #300738697
 Last Modified by: Giho Kim
 Last Modified date: 29 March 2016
@@ -16,24 +16,21 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-// MENU SCENE
+// INTRO SCENE
 var scenes;
 (function (scenes) {
-    var Menu = (function (_super) {
-        __extends(Menu, _super);
+    var Intro = (function (_super) {
+        __extends(Intro, _super);
         // CONSTRUCTOR ++++++++++++++++++++++
-        function Menu() {
+        function Intro() {
             _super.call(this);
         }
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
-        Menu.prototype.start = function () {
+        Intro.prototype.start = function () {
             //Add background
-            this._backgroundImage = new createjs.Bitmap(assets.getResult("MainBackground"));
+            this._backgroundImage = new createjs.Bitmap(assets.getResult("intro"));
             this.addChild(this._backgroundImage);
-            //Add Menu Label
-            this._menuLabel = new objects.Label("Are you ready?", "60px Candara Bold Italic", "#FFFFFF", config.Screen.CENTER_X, config.Screen.CENTER_Y - 210, true);
-            this.addChild(this._menuLabel);
             // add the Start button to the MENU scene
             this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X - 10, config.Screen.CENTER_Y + 175, true);
             this.addChild(this._startButton);
@@ -43,19 +40,19 @@ var scenes;
             stage.addChild(this);
         };
         // INTRO Scene updates here
-        Menu.prototype.update = function () {
+        Intro.prototype.update = function () {
         };
         //EVENT HANDLERS ++++++++++++++++++++
-        // StartButton click event handler
-        Menu.prototype._startButtonClick = function (event) {
-            // Switch to the INTRO Scene
+        // PlayButton click event handler
+        Intro.prototype._startButtonClick = function (event) {
             // Add click sound
             createjs.Sound.play("bgmchicken");
-            scene = config.Scene.INTRO;
+            // Switch to the Play Scene
+            scene = config.Scene.PLAY;
             changeScene();
         };
-        return Menu;
+        return Intro;
     })(objects.Scene);
-    scenes.Menu = Menu;
+    scenes.Intro = Intro;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=menu.js.map
+//# sourceMappingURL=intro.js.map
